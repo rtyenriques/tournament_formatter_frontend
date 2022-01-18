@@ -13,7 +13,43 @@ function createFormHandler(e) {
   const crewInput =document.querySelector('#input-crew').value
   const locationInput = document.querySelector('#input-location').value
   const compInput = document.querySelector('#competitions').value
-  
+  const compId = parseInt(compInput)
+  // const compId = parseInt(document.querySelector('#input-location').value)
+  postFetch(nameInput, crewInput,locationInput, compId)
+}
+
+function postFetch(name, crew, location, competition_id) {
+// console.log(name, crew, location, comp_id)
+const bodyData = {name, crew, location, competition_id}
+fetch(endpoint, {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  // body: JSON.stringify({
+  //   name: name,
+  //   crew: crew,
+  //   location: location,
+  //   competition_id: competition_id
+  // })
+  body: JSON.stringify(bodyData)
+})
+.then(response => response.json())
+.then(entries => {
+ 
+  // console.log(entries);
+  // const entryData = entries.data.attributes
+  const entryMarkup =`
+  <div data-id=${entries.id}>
+  <h3>${entries.name}</h3>
+  <h3>${entries.crew}</h3>
+  <h3>${entries.location}</h3>
+  <button data-id=${entries.id}>edit</button>
+  </div>
+  `;
+  document.querySelector('#entry-container').innerHTML +=
+  entryMarkup;
+
+})
+
 }
 
 function getEntries() {
