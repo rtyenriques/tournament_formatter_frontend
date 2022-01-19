@@ -13,9 +13,11 @@ function getEntries() {
     .then(json => {
       json.data.forEach(entry => {
 
-      let newEntry = new Entry(entry, entry.attributes)
-debugger
-     render(entry)
+      let newEntry = new Entry(entry.id, entry.attributes)
+
+    //  render(entry)
+    document.querySelector('#entry-container').innerHTML += newEntry.renderEntry()
+  ;
         })
     })
     // .catch(err => console.log(err))
@@ -66,8 +68,10 @@ fetch(endpoint, {
 
   console.log(entry);
   const entryData = entry.data
-render(entryData)
+  let newEntry = new Entry(entryData, entryData.attributes)
 
+ document.querySelector('#entry-container').innerHTML +=
+  newEntry.renderEntry();
 })
 
 }
