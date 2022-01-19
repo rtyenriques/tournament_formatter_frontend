@@ -66,6 +66,7 @@ fetch(endpoint, {
 render(entryData)
 
 })
+  .catch(err => console.log(err))
 
 }
 
