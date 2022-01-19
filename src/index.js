@@ -11,11 +11,14 @@ function getEntries() {
     fetch(endpoint)
     .then(response => response.json())
     .then(json => {
-      json.data.forEach(entries => {
-     render(entries)
+      json.data.forEach(entry => {
+
+      let newEntry = new Entry(entry, entry.attributes)
+debugger
+     render(entry)
         })
     })
-    .catch(err => console.log(err))
+    // .catch(err => console.log(err))
 }
 
 function render(entries) {
@@ -59,10 +62,10 @@ fetch(endpoint, {
   body: JSON.stringify(bodyData)
 })
 .then(response => response.json())
-.then(entries => {
+.then(entry => {
 
-  console.log(entries);
-  const entryData = entries.data
+  console.log(entry);
+  const entryData = entry.data
 render(entryData)
 
 })
