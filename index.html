@@ -5,13 +5,16 @@
         <title></title>
         <script type="text/javascript" src="src/index.js"></script>
         <script type="text/javascript" src="src/entry.js"></script>
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
+<center>
+        <h1 id = "event-title">Skillz Talk</h1>
 
         <div class="form-container">
 
             <form id="create-entry-form">
-                <h3>Create an Entry</h3>
+                <h3 id ="form-header">Create an Entry</h3>
 
                 <input id ="input-name" type="text" name="name" value ='' 
                 placeholder="Enter name(s)" class="input-text">
@@ -29,11 +32,14 @@
                     <option value="3">1 on 1 kids breaking</option>
                 </select>
                 <br><br>
-                <input id="create-button" type="submit" value="create new entry" class="submit">
+                <input id="submit-entry" type="submit" value="create new entry" class="submit">
             </form>
         </div>
-
+        <h1 id= "entry-title">Entries</h1>
         <div id= 'entry-container'>
         </div>
+    </center>
     </body>
 </html>
+
+
