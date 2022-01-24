@@ -43,6 +43,25 @@ const entryList = () => document.getElementById('entry-container')
    entryList().appendChild(div)
 
 }
+
+deleteEntry(entry) {
+    alert('u sure')
+    fetch(endpoint + '/' + this.id, {
+    method: "DELETE"
+  });
+  const entryList = () => document.getElementById('entry-container')
+  Entry.all.filter(e => 
+  e.id !== this.id)
+//   debugger
+  const resetList = () => {
+  entryList().innerHTML = ''
+}
+resetList()
+getEntries()
+//   Entry.renderEntries()
+}
+
+
 static findById(id) {
   return this.all.find(entry => entry.id === id)
 
@@ -54,22 +73,10 @@ static sortByComp(comp_type) {
 }
 
 static renderEntries() {
-    Entry.all.forEach(entry => renderEntry(entry))
+    this.all.forEach(entry => entry.renderEntry())
 }
 
-deleteEntry(entry) {
-    alert('u sure')
-    fetch(endpoint + '/' + this.id, {
-    method: "DELETE"
-  });
-  
-  Entry.all.filter(e => 
-  e.id !== this.id)
-debugger
-Entry.renderEntries()
-  
 
-}
 }
 
 Entry.all = [];
