@@ -68,7 +68,7 @@ fetch(endpoint, {
   console.log(entry);
   const entryData = entry.data
   let newEntry = new Entry(entryData, entryData.attributes)
-  document.querySelector('#entry-container').innerHTML +=
+  // document.querySelector('#entry-container').innerHTML +=
   newEntry.renderEntry();
 })
 }
