@@ -48,8 +48,26 @@ static findById(id) {
 
 }
 
+
+static sortByComp(comp_type) {
+
+}
+
+static renderEntries() {
+    Entry.all.forEach(entry => renderEntry(entry))
+}
+
 deleteEntry(entry) {
     alert('u sure')
+    fetch(endpoint + '/' + this.id, {
+    method: "DELETE"
+  });
+  
+  Entry.all.filter(e => 
+  e.id !== this.id)
+debugger
+Entry.renderEntries()
+  
 
 }
 }
