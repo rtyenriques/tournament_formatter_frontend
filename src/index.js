@@ -1,4 +1,5 @@
 const endpoint = "http://localhost:3000/api/v1/entries"
+const entryList = () => document.getElementById('entry-container')
 // const entryContainer = document.querySelector('#entry-container')
 
 
@@ -14,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // const deleteButton = document.querySelector('#')
 
 })
+
+  const resetList = () => {
+  entryList().innerHTML = ''
+}
 
 function getEntries() {
     fetch(endpoint)
@@ -70,8 +75,14 @@ fetch(endpoint, {
   let newEntry = new Entry(entryData, entryData.attributes)
   // document.querySelector('#entry-container').innerHTML +=
   newEntry.renderEntry();
+  debugger
+  const nameInput = document.querySelector('#input-name').value = ''
+  const crewInput =document.querySelector('#input-crew').value = ''
+  const locationInput = document.querySelector('#input-location').value = ''
+  const compInput = document.querySelector('#competitions').value = ''
 })
 }
+
 
 
 

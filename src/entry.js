@@ -8,16 +8,7 @@ this.competition = entryAttributes.competition;
 Entry.all.push(this)
 }
  renderEntry() {
-//    return `
-//       <div data-id=${this.id}>
-//       <h2>${this.competition.comp_type}
-//       <h3>${this.name}</h3>
-//       <h3>${this.crew}</h3>
-//       <h3>${this.location}</h3>
-//       <button data-id=${this.id}>delete</button>
-//       </div>
-//       <br>`;
-const entryList = () => document.getElementById('entry-container')
+   const entryList = () => document.getElementById('entry-container')
    const div = document.createElement('div')
    const h3 = document.createElement('h3')
    const h4 = document.createElement('h4')
@@ -49,16 +40,16 @@ deleteEntry(entry) {
     fetch(endpoint + '/' + this.id, {
     method: "DELETE"
   });
-  const entryList = () => document.getElementById('entry-container')
+//   const entryList = () => document.getElementById('entry-container')
   Entry.all.filter(e => 
   e.id !== this.id)
 //   debugger
-  const resetList = () => {
-  entryList().innerHTML = ''
-}
+//   const resetList = () => {
+//   entryList().innerHTML = ''
+// }
 resetList()
 getEntries()
-//   Entry.renderEntries()
+
 }
 
 
