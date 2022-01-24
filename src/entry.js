@@ -48,10 +48,10 @@ static findById(id) {
 
 }
 
-// deleteEntry(entry) {
-//     alert('u sure')
+deleteEntry(entry) {
+    alert('u sure')
 
-// }
+}
 }
 
 Entry.all = [];
