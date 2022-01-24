@@ -67,23 +67,20 @@ static findById(id) {
 
 static sortByComp() {
     
-    Entry.all = this.all.filter(e => e.competition.id === 1)
-  
+//    let compEntry = this.all.filter(e => e.competition.id === 1)
+//   debugger
+    let newEntry =  () => {compEntry.forEach(e => e.renderEntry())}
     resetList()
-    let newEntry =  () => {Entry.all.forEach(e => e.renderEntry())}
-    return newEntry()
-  
-    getEntries()
-
-    
-   
-    
-  
-    
-
+   return newEntry()
+    // getEntries()
 }
 
-
+static allComps() {
+    resetList()
+    // getEntries()
+     let newEntry =  () => {Entry.all.forEach(e => e.renderEntry())}
+     return newEntry()
+}
 
 
 }

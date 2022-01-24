@@ -13,8 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fourVfour.addEventListener('click', e => {
     e.preventDefault()
+    resetList()
     Entry.sortByComp()
   })
+  
+  const allComps = document.querySelector('#all')
+  allComps.addEventListener('click', e => {
+  e.preventDefault()
+  resetList()
+  Entry.allComps()
+  })
+
 
 })
 
