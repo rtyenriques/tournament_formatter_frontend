@@ -7,23 +7,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   getEntries()
   const createEntryForm = document.querySelector('#create-entry-form')
-  createEntryForm.addEventListener('submit', (e) => createFormHandler(e))
-   // const editEntryForm = document.querySelector("entry-container")
-    // editEntryForm.addEventListener('click', e => {
-    // console.log('clicked');
-    // })
-    // const deleteButton = document.querySelector('#')
+  createEntryForm.addEventListener('submit', (e) => createFormHandler(e));
+  
+  const fourVfour = document.querySelector('#four')
+
+  fourVfour.addEventListener('click', e => {
+    e.preventDefault()
+    Entry.sortByComp()
+  })
 
 })
+
+
+  // const fourVfour = document.querySelector('#four')
+  // debugger
+  // fourVfour.addEventListener('click', console.log('hi'))
+  
+
+
 
   const resetList = () => {
   entryList().innerHTML = ''
 }
 
+
+
 function getEntries() {
-    fetch(endpoint)
-    .then(response => response.json())
-    .then(json => {
+   fetch(endpoint)
+    .then (response => response.json())
+    .then (json => {
       json.data.forEach(entry => {
         let newEntry = new Entry(entry, entry.attributes)
         // document.querySelector('#entry-container').innerHTML += newEntry.renderEntry();
@@ -60,10 +72,10 @@ function createFormHandler(e) {
   postFetch(nameInput, crewInput,locationInput, compId)
 }
 
-function postFetch(name, crew, location, competition_id) {
+async function postFetch(name, crew, location, competition_id) {
 // console.log(name, crew, location, comp_id)
 const bodyData = {name, crew, location, competition_id}
-fetch(endpoint, {
+await fetch(endpoint, {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify(bodyData)
@@ -75,7 +87,7 @@ fetch(endpoint, {
   let newEntry = new Entry(entryData, entryData.attributes)
   // document.querySelector('#entry-container').innerHTML +=
   newEntry.renderEntry();
-  debugger
+  // debugger
   const nameInput = document.querySelector('#input-name').value = ''
   const crewInput =document.querySelector('#input-crew').value = ''
   const locationInput = document.querySelector('#input-location').value = ''

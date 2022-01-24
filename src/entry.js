@@ -23,7 +23,11 @@ Entry.all.push(this)
    + " Location: " + this.location;
    h4.style.color = 'black';
    deleteButton.innerText = 'delete entry'
-   deleteButton.addEventListener('click', e => this.deleteEntry())
+   deleteButton.addEventListener('click', e  => {
+    e.preventDefault()
+    this.deleteEntry()
+   })
+//    }=> this.deleteEntry())
 
       
   div.appendChild(h2)
@@ -35,9 +39,9 @@ Entry.all.push(this)
 
 }
 
-deleteEntry(entry) {
-    alert('u sure')
-    fetch(endpoint + '/' + this.id, {
+async deleteEntry() {
+    // alert('u sure')
+    await fetch(endpoint + '/' + this.id, {
     method: "DELETE"
   });
 //   const entryList = () => document.getElementById('entry-container')
@@ -47,7 +51,9 @@ deleteEntry(entry) {
 //   const resetList = () => {
 //   entryList().innerHTML = ''
 // }
+
 resetList()
+
 getEntries()
 
 }
@@ -59,7 +65,21 @@ static findById(id) {
 }
 
 
-static sortByComp(comp_type) {
+static sortByComp() {
+    
+    Entry.all = this.all.filter(e => e.competition.id === 1)
+  
+    resetList()
+    let newEntry =  () => {Entry.all.forEach(e => e.renderEntry())}
+    return newEntry()
+  
+    getEntries()
+
+    
+   
+    
+  
+    
 
 }
 
