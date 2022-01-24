@@ -3,22 +3,16 @@ const endpoint = "http://localhost:3000/api/v1/entries"
 
 
 document.addEventListener('DOMContentLoaded', () => {
-<<<<<<< HEAD
+
   getEntries()
   const createEntryForm = document.querySelector('#create-entry-form')
   createEntryForm.addEventListener('submit', (e) => createFormHandler(e))
-=======
-
-    getEntries()
-   
-    const createEntryForm = document.querySelector('#create-entry-form')
-    createEntryForm.addEventListener('submit', (e) => createFormHandler(e))
-
-    // const editEntryForm = document.querySelector("entry-container")
+   // const editEntryForm = document.querySelector("entry-container")
     // editEntryForm.addEventListener('click', e => {
     // console.log('clicked');
     // })
->>>>>>> deleteButton
+    // const deleteButton = document.querySelector('#')
+
 })
 
 function getEntries() {
@@ -26,15 +20,15 @@ function getEntries() {
     .then(response => response.json())
     .then(json => {
       json.data.forEach(entry => {
-        let newEntry = new Entry(entry.id, entry.attributes)
-        document.querySelector('#entry-container').innerHTML += newEntry.renderEntry();
+        let newEntry = new Entry(entry, entry.attributes)
+        // document.querySelector('#entry-container').innerHTML += newEntry.renderEntry();
+        newEntry.renderEntry()
       })
     })
     // .catch(err => console.log(err))
 }
 
-<<<<<<< HEAD
-=======
+
 // function render(entries) {
 //   const entryMarkup = `
 //         <div data-id=${entries.id}>
@@ -49,7 +43,7 @@ function getEntries() {
 //   entryMarkup;
 // }
 
->>>>>>> deleteButton
+
 function createFormHandler(e) {
   e.preventDefault()
   const nameInput = document.querySelector('#input-name').value
