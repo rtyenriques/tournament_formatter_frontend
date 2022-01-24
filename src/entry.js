@@ -72,9 +72,7 @@ static sortByComp(comp_type) {
 
 }
 
-static renderEntries() {
-    this.all.forEach(entry => entry.renderEntry())
-}
+
 
 
 }
