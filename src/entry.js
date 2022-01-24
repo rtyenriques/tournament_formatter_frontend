@@ -67,7 +67,7 @@ static findById(id) {
 
 static sortByComp() {
     
-//    let compEntry = this.all.filter(e => e.competition.id === 1)
+   let compEntry = this.all.filter(e => e.competition.id === 1)
 //   debugger
     let newEntry =  () => {compEntry.forEach(e => e.renderEntry())}
     resetList()
