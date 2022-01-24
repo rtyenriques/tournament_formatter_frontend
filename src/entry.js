@@ -90,6 +90,15 @@ static oneAdult() {
     return newEntry()
 }
 
+static oneKids() {
+        let compEntry = this.all.filter(e => e.competition.id === 3)
+  
+    let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
+ 
+    return newEntry()
+
+}
+
 }
 
 Entry.all = [];

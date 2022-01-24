@@ -31,7 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     Entry.oneAdult()
   })
 
-
+const oneOnoneKids = document.querySelector('#one-kid')
+ oneOnoneKids.addEventListener('click', e => { 
+  e.preventDefault()
+  resetList()
+  Entry.oneKids()
+})
 })
 
 
