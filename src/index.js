@@ -24,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
   Entry.allComps()
   })
 
+  const oneOnone = document.querySelector('#one')
+  oneOnone.addEventListener('click', e => {
+    e.preventDefault()
+    resetList()
+    Entry.oneAdult()
+  })
+
 
 })
 

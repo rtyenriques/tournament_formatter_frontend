@@ -69,19 +69,26 @@ static sortByComp() {
     
    let compEntry = this.all.filter(e => e.competition.id === 1)
 //   debugger
-    let newEntry =  () => {compEntry.forEach(e => e.renderEntry())}
-    resetList()
+    let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
+
    return newEntry()
     // getEntries()
 }
 
 static allComps() {
-    resetList()
+  
     // getEntries()
      let newEntry =  () => {Entry.all.forEach(e => e.renderEntry())}
      return newEntry()
 }
 
+static oneAdult() {
+    let compEntry = this.all.filter(e => e.competition.id === 2)
+  
+    let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
+ 
+    return newEntry()
+}
 
 }
 
