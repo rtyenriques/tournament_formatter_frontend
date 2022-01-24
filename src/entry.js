@@ -7,7 +7,8 @@ this.location = entryAttributes.location;
 this.competition = entryAttributes.competition;
 Entry.all.push(this)
 }
- renderEntry() {
+ 
+renderEntry() {
    const entryList = () => document.getElementById('entry-container')
    const div = document.createElement('div')
    const h3 = document.createElement('h3')
@@ -27,7 +28,6 @@ Entry.all.push(this)
     e.preventDefault()
     this.deleteEntry()
    })
-//    }=> this.deleteEntry())
 
       
   div.appendChild(h2)
@@ -41,64 +41,42 @@ Entry.all.push(this)
 
 async deleteEntry() {
     // alert('u sure')
-    await fetch(endpoint + '/' + this.id, {
+  await fetch(endpoint + '/' + this.id, {
     method: "DELETE"
   });
-//   const entryList = () => document.getElementById('entry-container')
-  Entry.all.filter(e => 
-  e.id !== this.id)
-//   debugger
-//   const resetList = () => {
-//   entryList().innerHTML = ''
-// }
-
-resetList()
-
-getEntries()
-
+  Entry.all.filter(e => e.id !== this.id)
+  resetList()
+  getEntries()
 }
 
 
 static findById(id) {
   return this.all.find(entry => entry.id === id)
-
 }
 
 
 static sortByComp() {
-    
-   let compEntry = this.all.filter(e => e.competition.id === 1)
-//   debugger
-    let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
-
-   return newEntry()
-    // getEntries()
+  let compEntry = this.all.filter(e => e.competition.id === 1)
+  let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
+  return newEntry()
 }
 
 static allComps() {
-  
-    // getEntries()
-     let newEntry =  () => {Entry.all.forEach(e => e.renderEntry())}
-     return newEntry()
+  let newEntry =  () => {Entry.all.forEach(e => e.renderEntry())}
+  return newEntry()
 }
 
 static oneAdult() {
-    let compEntry = this.all.filter(e => e.competition.id === 2)
-  
-    let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
- 
-    return newEntry()
+  let compEntry = this.all.filter(e => e.competition.id === 2)
+  let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
+  return newEntry()
 }
 
 static oneKids() {
-        let compEntry = this.all.filter(e => e.competition.id === 3)
-  
-    let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
- 
-    return newEntry()
-
-}
-
+  let compEntry = this.all.filter(e => e.competition.id === 3)
+  let newEntry = () => {compEntry.forEach(e => e.renderEntry())}
+  return newEntry()
+  }
 }
 
 Entry.all = [];
