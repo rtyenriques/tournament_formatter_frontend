@@ -44,9 +44,15 @@ async deleteEntry() {
   await fetch(endpoint + '/' + this.id, {
     method: "DELETE"
   });
-  Entry.all.filter(e => e.id !== this.id)
+
+ Entry.all = Entry.all.filter(e => e.id !== this.id)
+  
   resetList()
-  getEntries()
+//   getEntries()
+  let newEntry = () => {Entry.all.forEach(e => e.renderEntry())}
+
+  return newEntry()
+  
 }
 
 
