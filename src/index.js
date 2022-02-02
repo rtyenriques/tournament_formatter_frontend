@@ -7,19 +7,34 @@ const compButtons = document.querySelector('#comp-buttons')
 
 compButtons.addEventListener('click', e => {
 
-  const target = e.target
 
   resetList()
-
-  if (target == compButtons.children[1]) {
-    Entry.sortByComp(1)
-  } else if (target == compButtons.children[2]) {
-    Entry.sortByComp(2)
-  } else if (target == compButtons.children[3]) {
-    Entry.sortByComp(3)
-  } else if (target == compButtons.children[0]) {
+  // debugger
+  if (e.target.classList.contains('comp-buttons')) {
+  Entry.sortByComp(parseInt(e.target.dataset.id))
+  } else {
     Entry.all.forEach(e => e.renderEntry())
   }
+  // if(e.target.parentElement.classList.contains('comp-buttons')) {
+    
+  //   Entry.sortByComp(parseInt(e.target.dataset.id))
+    
+  //   // if (target.dataset.id === false) {
+  //   //   Entry.all.forEach(e => e.renderEntry())
+  //   // }
+      
+      
+  // }
+
+  // if (target == compButtons.children[1]) {
+  //   Entry.sortByComp(1)
+  // } else if (target == compButtons.children[2]) {
+  //   Entry.sortByComp(2)
+  // } else if (target == compButtons.children[3]) {
+  //   Entry.sortByComp(3)
+  // } else if (target == compButtons.children[0]) {
+  //   Entry.all.forEach(e => e.renderEntry())
+  // }
 
 })
 
